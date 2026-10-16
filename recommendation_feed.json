@@ -1,0 +1,90 @@
+{
+  "_readme": "rules are evaluated top to bottom; first match wins. 'if' keys are profile properties: preferred_holiday_type must equal; budget_min/budget_max bound the profile's 'budget'. 'recommend' is an ordered preference list of product ids: the first one in stock is chosen. No rule match, or nothing in stock, falls back to 'default'.",
+  "default": {
+    "id": "H000",
+    "name": "Hand-picked Holidays for You",
+    "destination": "Worldwide",
+    "price_display": "from £499",
+    "url": "https://example.com/holidays",
+    "image": "https://placehold.co/600x400?text=Holidays"
+  },
+  "rules": [
+    {
+      "id": "beach-premium",
+      "if": { "preferred_holiday_type": "beach", "budget_min": 1300 },
+      "recommend": ["H001", "H002", "H003"]
+    },
+    {
+      "id": "beach-mid",
+      "if": { "preferred_holiday_type": "beach", "budget_min": 1100, "budget_max": 1299 },
+      "recommend": ["H002", "H003"]
+    },
+    {
+      "id": "beach-value",
+      "if": { "preferred_holiday_type": "beach", "budget_max": 1099 },
+      "recommend": ["H003"]
+    },
+    {
+      "id": "winter-premium",
+      "if": { "preferred_holiday_type": "winter", "budget_min": 1800 },
+      "recommend": ["H004", "H005"]
+    },
+    {
+      "id": "winter-mid",
+      "if": { "preferred_holiday_type": "winter", "budget_max": 1799 },
+      "recommend": ["H005", "H004"]
+    }
+  ],
+  "products": [
+    {
+      "id": "H001",
+      "name": "Amalfi Coast Escape",
+      "destination": "Italy",
+      "type": "beach",
+      "price_display": "£1,299",
+      "quantity": 12,
+      "url": "https://example.com/holidays/amalfi-coast",
+      "image": "https://placehold.co/600x400?text=Amalfi+Coast"
+    },
+    {
+      "id": "H002",
+      "name": "Santorini Sunset Retreat",
+      "destination": "Greece",
+      "type": "beach",
+      "price_display": "£1,149",
+      "quantity": 0,
+      "url": "https://example.com/holidays/santorini",
+      "image": "https://placehold.co/600x400?text=Santorini"
+    },
+    {
+      "id": "H003",
+      "name": "Algarve Beach Break",
+      "destination": "Portugal",
+      "type": "beach",
+      "price_display": "£899",
+      "quantity": 25,
+      "url": "https://example.com/holidays/algarve",
+      "image": "https://placehold.co/600x400?text=Algarve"
+    },
+    {
+      "id": "H004",
+      "name": "Lapland Northern Lights",
+      "destination": "Finland",
+      "type": "winter",
+      "price_display": "£1,799",
+      "quantity": 4,
+      "url": "https://example.com/holidays/lapland",
+      "image": "https://placehold.co/600x400?text=Lapland"
+    },
+    {
+      "id": "H005",
+      "name": "Swiss Alps Ski Week",
+      "destination": "Switzerland",
+      "type": "winter",
+      "price_display": "£1,649",
+      "quantity": 0,
+      "url": "https://example.com/holidays/swiss-alps",
+      "image": "https://placehold.co/600x400?text=Swiss+Alps"
+    }
+  ]
+}
